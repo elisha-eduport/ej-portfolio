@@ -49,7 +49,8 @@
 <main id="top" class="container">
 
   <section class="hero">
-    <img class="avatar" src="assets/photo.jpg" alt="Elisha G Joy" width="96" height="96">
+    <canvas class="avatar pixel" id="avatar" width="400" height="400" role="img" aria-label="Elisha G Joy, pixel art"></canvas>
+    <noscript><img class="avatar pixel" src="assets/avatar-pixel.png" alt="Elisha G Joy, pixel art" width="96" height="96"></noscript>
     <div>
       <h1>Elisha G Joy</h1>
       <p class="sub">
@@ -64,7 +65,7 @@
 
   <p class="bio">
     I build backend systems in Python and Django, mostly the kind that have to stay up when thousands of people hit them in the same minute.
-    Studied mechanical engineering, spent two years on building sites in Bangalore, then moved into software.
+    Studied mechanical engineering, spent an year on building sites in Bangalore, then moved into software development.
   </p>
 
   <div class="socials">
@@ -263,6 +264,8 @@
 
 <div class="toast" id="toast" hidden>Email copied</div>
 
+<script src="assets/avatar-data.js"></script>
+<script src="pixel.js"></script>
 <script src="main.js"></script>
 </body>
 </html>

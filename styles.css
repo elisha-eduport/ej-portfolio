@@ -83,6 +83,14 @@ kbd { font-family: inherit; font-size: 12px; background: var(--chip); border: 1p
 /* hero */
 .hero { display: flex; align-items: center; gap: 22px; margin-top: 48px; }
 .avatar { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; object-position: center 25%; border: 1px solid var(--line); flex: none; }
+.avatar.pixel { border-radius: 0; border: 0; object-fit: contain; image-rendering: pixelated; }
+canvas.avatar { width: 96px; height: 96px; cursor: pointer; }
+/* idle bob: one pixel-cell (96/40 = 2.4px), stepped so it stays pixel-y */
+@keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-2.4px); } }
+canvas.avatar.alive { animation: bob 1.6s steps(1, end) infinite; }
+@media (prefers-reduced-motion: reduce) { canvas.avatar.alive { animation: none; } }
+
+}
 .hero h1 { font-size: 26px; font-weight: 700; margin: 0; letter-spacing: -0.01em; }
 .sub { margin: 2px 0 0; color: var(--muted); font-size: 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 4px; }
 .copy { display: inline-flex; align-items: center; gap: 5px; color: var(--muted); }
