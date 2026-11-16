@@ -84,11 +84,10 @@ kbd { font-family: inherit; font-size: 12px; background: var(--chip); border: 1p
 .hero { display: flex; align-items: center; gap: 22px; margin-top: 48px; }
 .avatar { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; object-position: center 25%; border: 1px solid var(--line); flex: none; }
 .avatar.pixel { border-radius: 0; border: 0; object-fit: contain; image-rendering: pixelated; }
-canvas.avatar { width: 96px; height: 96px; cursor: pointer; }
-/* idle bob: one pixel-cell (96/40 = 2.4px), stepped so it stays pixel-y */
-@keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-2.4px); } }
-canvas.avatar.alive { animation: bob 1.6s steps(1, end) infinite; }
-@media (prefers-reduced-motion: reduce) { canvas.avatar.alive { animation: none; } }
+/* every 4 seconds the whole avatar hops up a little and back */
+@keyframes hop { 0%, 82%, 100% { transform: translateY(0); } 88% { transform: translateY(-4px); } 94% { transform: translateY(0); } }
+.avatar.pixel { animation: hop 4s steps(1, end) infinite; }
+@media (prefers-reduced-motion: reduce) { .avatar.pixel { animation: none; } }
 
 }
 .hero h1 { font-size: 26px; font-weight: 700; margin: 0; letter-spacing: -0.01em; }
